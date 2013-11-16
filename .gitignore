@@ -1,0 +1,7 @@
+# QML
+
+*.qmlproject.user
+
+# QtCreator
+
+*.autosave
