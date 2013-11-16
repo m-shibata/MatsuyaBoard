@@ -6,29 +6,34 @@ Rectangle {
     width: 480
     height: 640
 
-    Rectangle {
-        width: 299
-        height: 299
-        anchors.centerIn: parent
+    Flickable {
+        anchors.fill: parent
+        contentWidth: 2 * root.width - maskman.width
+        contentHeight: 2 * root.height - maskman.height
+        contentX: (root.width - maskman.width) / 2
+        contentY: (root.height - maskman.height) / 2
 
         Image {
+            id: maskman
+            anchors.centerIn: parent
             source: "assets/oshie.jpg"
-        }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                var num
-                num = new String(Math.floor(Math.random()*4)+1)
-                console.log(num)
-                community.source = "assets/"+num+".wav"
-                community.play()
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    var num
+                    num = new String(Math.floor(Math.random()*4)+1)
+                    console.log(num)
+                    console.log(maskman.width)
+                    community.source = "assets/"+num+".wav"
+                    community.play()
+                }
             }
         }
-    }
 
-    Audio {
-        id: community
-        source: "assets/1.wav"
+        Audio {
+            id: community
+            source: "assets/1.wav"
+        }
     }
 }
