@@ -8,8 +8,8 @@ Rectangle {
 
     Flickable {
         anchors.fill: parent
-        contentWidth: 2 * root.width - maskman.width
-        contentHeight: 2 * root.height - maskman.height
+        contentWidth: Math.max(2 * root.width - maskman.width, maskman.width)
+        contentHeight: Math.max(2 * root.height - maskman.height, maskman.height)
         contentX: (root.width - maskman.width) / 2
         contentY: (root.height - maskman.height) / 2
 
